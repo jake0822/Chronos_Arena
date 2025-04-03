@@ -36,7 +36,9 @@ public class HandAnimator : MonoBehaviour
     {
         new Finger(FingerType.Middle),
         new Finger(FingerType.Ring),
-        new Finger(FingerType.Pinky)
+        new Finger(FingerType.Pinky),
+        new Finger(FingerType.Thumb),
+         new Finger(FingerType.Index)
     };
 
     /// <summary>
