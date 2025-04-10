@@ -118,19 +118,19 @@ public class HandAnimator : MonoBehaviour
 
     private void GripAction_canceled(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(grippingFingers, 0.0f);
+        SetFingerAnimationValues(grippingFingers, 1.0f);
         AnimateActionInput(grippingFingers);
     }
 
     private void TriggerAction_canceled(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(pointingFingers, 0.0f);
+        SetFingerAnimationValues(pointingFingers, 1.0f);
         AnimateActionInput(pointingFingers);
     }
 
     private void PrimaryAction_canceled(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(primaryFingers, 0.0f);
+        SetFingerAnimationValues(primaryFingers, 1.0f);
         AnimateActionInput(primaryFingers);
     }
 
