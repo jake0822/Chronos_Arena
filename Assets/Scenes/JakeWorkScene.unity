@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &90341611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &299639867
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.669
+      value: -1.231
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -286,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.813
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -468,13 +473,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440493305}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6802966, y: -0, z: -0, w: 0.732937}
-  m_LocalPosition: {x: 0, y: 0.2421013, z: -0.5700417}
+  m_LocalRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372774}
+  m_LocalPosition: {x: 0, y: 0.204, z: 0.65}
   m_LocalScale: {x: 0.8700643, y: 0.8635167, z: 0.36827844}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1628606702}
-  m_LocalEulerAnglesHint: {x: -85.734, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 85, y: 0, z: 0}
 --- !u!114 &1440493307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 1440493308}
+  doingAttack: 0
 --- !u!136 &1440493308
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -518,7 +524,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440493305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -660,14 +666,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628606698}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.99673676, z: 0, w: -0.08072077}
   m_LocalPosition: {x: 1.24, y: 1.13, z: 0.64}
   m_LocalScale: {x: 0.53154, y: 1.2598029, z: 0.53154}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1440493306}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -189.26, z: 0}
 --- !u!114 &1628606703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,7 +687,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 0
+  follow: 1
   enemyHitbox: {fileID: 1440493307}
+  player: {fileID: 90341611}
 --- !u!1 &2092139007
 GameObject:
   m_ObjectHideFlags: 0

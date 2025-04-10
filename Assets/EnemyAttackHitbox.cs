@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttackHitbox : MonoBehaviour
 {
     public CapsuleCollider collider;
+    [HideInInspector]public bool doingAttack = false;
     
     void Start()
     {
@@ -19,10 +20,12 @@ public class EnemyAttackHitbox : MonoBehaviour
     }
     IEnumerator Attack()
     {
+        doingAttack = true;
         collider.enabled = true;
         print("Attack!");
         yield return new WaitForSeconds(2);
         collider.enabled = false;
+        doingAttack = false;
     }
     public void doAttack()
     {
