@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     float distanceToPlyr;
     private float attackTimer;
     public float attackDelay = 3f;
+    public AnimationController animations;
     private void FixedUpdate()
     {
         //start
@@ -19,12 +20,15 @@ public class Enemy : MonoBehaviour
         //vvv stateMachine
         if (attack)
         {
+           
             enemyHitbox.doAttack();
             attack = false;
         }
 
         if (follow && distanceToPlyr >= 1)
         {
+
+            animations.run = true;
             transform.position = Vector3.Lerp(transform.position, 
                 new Vector3(player.transform.position.x, transform.position.y, //explore PID system
                 player.transform.position.z), .01f);

@@ -7,7 +7,8 @@ public class EnemyAttackHitbox : MonoBehaviour
     public CapsuleCollider collider;
     public MeshRenderer attackMesh;
     [HideInInspector]public bool doingAttack = false;
-    
+    public AnimationController animations;
+
     void Start()
     {
         collider.enabled = false;
@@ -21,11 +22,18 @@ public class EnemyAttackHitbox : MonoBehaviour
     }
     IEnumerator Attack()
     {
+        animations.hit = false;
+        animations.run = false;
+        animations.attack = true;
         doingAttack = true;
+        yield return new WaitForSeconds(0.6f);
         collider.enabled = true;
         attackMesh.enabled = true;
         print("Attack!");
         yield return new WaitForSeconds(1f);
+        animations.hit = false;
+        animations.run = false;
+        animations.attack = false;
         attackMesh.enabled = false;
         collider.enabled = false;
         doingAttack = false;
