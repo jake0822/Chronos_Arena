@@ -9,9 +9,14 @@ public class Enemy : MonoBehaviour
     public EnemyAttackHitbox enemyHitbox;
     public GameObject player;
     float distanceToPlyr;
+    private float attackTimer;
+    public float attackDelay = 3f;
     private void FixedUpdate()
     {
+        //start
         distanceToPlyr = Vector3.Distance(player.transform.position, transform.position);
+        attackTimer += Time.deltaTime;
+        //vvv stateMachine
         if (attack)
         {
             enemyHitbox.doAttack();
@@ -20,19 +25,15 @@ public class Enemy : MonoBehaviour
 
         if (follow && distanceToPlyr >= 1)
         {
-
             transform.position = Vector3.Lerp(transform.position, 
                 new Vector3(player.transform.position.x, transform.position.y, //explore PID system
                 player.transform.position.z), .01f);
-
-
             Vector3 newTest = new Vector3(player.transform.position.x, 1.1f, player.transform.position.z);
-
-
             transform.LookAt(newTest);
-           
-        }
-        if (!enemyHitbox.doingAttack && distanceToPlyr <= 1) {
+        }// ^^^state machine
+        //  vvv state control
+        if (!enemyHitbox.doingAttack && distanceToPlyr <= 1 && attackTimer >= attackDelay) {
+            attackTimer = 0;
             attack = true; }
     }
 }
