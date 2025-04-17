@@ -24,17 +24,19 @@ public class EnemyAttackHitbox : MonoBehaviour
     {
         animations.hit = false;
         animations.run = false;
+        animations.idle = false;
         animations.attack = true;
         doingAttack = true;
         yield return new WaitForSeconds(0.6f);
         collider.enabled = true;
-        attackMesh.enabled = true;
+        //attackMesh.enabled = true;
         print("Attack!");
         yield return new WaitForSeconds(1f);
         animations.hit = false;
         animations.run = false;
         animations.attack = false;
-        attackMesh.enabled = false;
+        animations.idle = false;
+        //attackMesh.enabled = false;
         collider.enabled = false;
         doingAttack = false;
     }

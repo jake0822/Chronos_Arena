@@ -5,13 +5,16 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public Animation animation;
-    [HideInInspector] public bool attack, hit, run;
+     public bool attack, hit, run, idle;
     private bool swap;
     
-
+    public void resetAnimations()
+    {
+        attack = false; hit = false; run = false; idle = false;
+    }
     private void FixedUpdate()
     {
-        if (!animation.isPlaying)
+        if (idle)
         {
             animation.Play("Idle_01");
         }
