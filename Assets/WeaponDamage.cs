@@ -7,8 +7,20 @@ public class WeaponDamage : MonoBehaviour
     public float damageMultiplier = 1f;
     public float minDamageThreshold = 0.5f;
 
+    public AudioClip hitSound;
+    public AudioClip screechSound;
+    public AudioSource audioSource;
+
     private Vector3 lastPosition;
     private Vector3 velocity;
+
+    void Start()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -30,6 +42,15 @@ public class WeaponDamage : MonoBehaviour
                 float damage = swingSpeed * damageMultiplier;
                 enemy.TakeDamage(damage);
                 Debug.Log($"Hit enemy with {damage:F2} damage (speed: {swingSpeed:F2})");
+
+                // Play sound effects
+                if (audioSource != null)
+                {
+                    if (hitSound != null)
+                        audioSource.PlayOneShot(hitSound);
+                    if (screechSound != null)
+                        audioSource.PlayOneShot(screechSound);
+                }
 
                 // Knockback logic
                 if (enemyRb != null)
