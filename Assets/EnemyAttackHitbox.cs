@@ -9,6 +9,7 @@ public class EnemyAttackHitbox : MonoBehaviour
     [HideInInspector]public bool doingAttack = false;
     public AnimationController animations;
     public MeshRenderer redOverlay;
+    private bool beingHit;
 
     void Start()
     {
@@ -25,7 +26,10 @@ public class EnemyAttackHitbox : MonoBehaviour
     }
     IEnumerator PlayerHit()
     {
+        if (beingHit)
+            yield return null;
         float alpha = 0f;
+        beingHit = true;
         float speed = 2f;
         int dir = 1;
 
@@ -41,7 +45,10 @@ public class EnemyAttackHitbox : MonoBehaviour
             if (alpha >= 0.6f)
                 dir = -1;
             if (alpha <= 0f)
+            {
+                beingHit = false;
                 break;
+            }
 
             yield return null; 
         }
