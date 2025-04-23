@@ -8,9 +8,12 @@ public class EnemyAttackHitbox : MonoBehaviour
     public MeshRenderer attackMesh;
     [HideInInspector]public bool doingAttack = false;
     public AnimationController animations;
+    public MeshRenderer redOverlay;
+    private bool beingHit;
 
     void Start()
     {
+        redOverlay = GameObject.FindGameObjectWithTag("red").GetComponent<MeshRenderer>();
         collider.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
@@ -18,6 +21,36 @@ public class EnemyAttackHitbox : MonoBehaviour
         if (other.gameObject.CompareTag("Player") == true)
         {
             print("Player Hit!");
+            StartCoroutine(PlayerHit());
+        }
+    }
+    IEnumerator PlayerHit()
+    {
+        if (beingHit)
+            yield return null;
+        float alpha = 0f;
+        beingHit = true;
+        float speed = 2f;
+        int dir = 1;
+
+        Color baseColor = redOverlay.material.color;
+
+        while (true)
+        {
+            alpha += Time.deltaTime * speed * dir;
+            alpha = Mathf.Clamp01(alpha);
+
+            redOverlay.material.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+
+            if (alpha >= 0.6f)
+                dir = -1;
+            if (alpha <= 0f)
+            {
+                beingHit = false;
+                break;
+            }
+
+            yield return null; 
         }
     }
     IEnumerator Attack()
