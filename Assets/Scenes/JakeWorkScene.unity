@@ -695,6 +695,18 @@ PrefabInstance:
       propertyPath: handInteractor
       value: 
       objectReference: {fileID: 331697221}
+    - target: {fileID: 3874976262128175217, guid: b590a3fc3848d664690a963bfbefce24, type: 3}
+      propertyPath: m_SmoothTurnEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874976262128175217, guid: b590a3fc3848d664690a963bfbefce24, type: 3}
+      propertyPath: m_SmoothMotionEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549444463340181128, guid: b590a3fc3848d664690a963bfbefce24, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7533882758236617486, guid: b590a3fc3848d664690a963bfbefce24, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
