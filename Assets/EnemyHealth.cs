@@ -9,8 +9,11 @@ public class EnemyHealth : MonoBehaviour
     public Renderer rend; // Assign in inspector
     private Color originalColor;
 
+    
     private void Start()
     {
+        
+      
         if (rend == null) rend = GetComponent<Renderer>();
         originalColor = rend.material.color;
     }
@@ -23,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0f)
         {
             Die();
+           
         }
     }
 

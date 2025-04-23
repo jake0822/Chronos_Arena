@@ -12,6 +12,7 @@ public class EnemyAttackHitbox : MonoBehaviour
 
     void Start()
     {
+        redOverlay = GameObject.FindGameObjectWithTag("red").GetComponent<MeshRenderer>();
         collider.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
