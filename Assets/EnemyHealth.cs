@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     public float health = 100f;
     public Renderer rend; // Assign in Inspector
     public Image healthBarFill; // Drag the fill image here in the Inspector
+    public AnimationController AC;
+    public Enemy Enemy;
 
     private Color originalColor;
 
@@ -52,6 +54,15 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        StartCoroutine(die());
+    }
+    IEnumerator die()
+    {
+        Enemy.dead = true;
+       AC.resetAnimations();
+        AC.death = true;
+        yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
+       
     }
 }

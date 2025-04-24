@@ -561,6 +561,7 @@ MonoBehaviour:
   attackDelay: 2.5
   animations: {fileID: 5515980370366823761}
   AttackRange: 2
+  dead: 0
 --- !u!195 &2620813212324663129
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -598,6 +599,8 @@ MonoBehaviour:
   health: 100
   rend: {fileID: 0}
   healthBarFill: {fileID: 9085835675261902077}
+  AC: {fileID: 5515980370366823761}
+  Enemy: {fileID: 1707469344260991024}
 --- !u!54 &7373335205965052697
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1261,3 +1264,4 @@ MonoBehaviour:
   hit: 0
   run: 0
   idle: 0
+  death: 0

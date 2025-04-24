@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ public class WeaponDamage : MonoBehaviour
 {
     public float damageMultiplier = 1f;
     public float minDamageThreshold = 0.5f;
+    public float knockbackMultiplier = 10f; // 🔥 Customizable per weapon
+    public float maxKnockbackForce = 15f;
 
     public AudioClip hitSound;
     public AudioClip screechSound;
@@ -58,7 +60,7 @@ public class WeaponDamage : MonoBehaviour
                     Vector3 knockbackDir = collision.contacts[0].point - transform.position;
                     knockbackDir = knockbackDir.normalized;
 
-                    float knockbackForce = Mathf.Clamp(swingSpeed * 10f, 0f, 15f);
+                    float knockbackForce = Mathf.Clamp(swingSpeed * knockbackMultiplier, 0f, maxKnockbackForce);
                     enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
                 }
             }

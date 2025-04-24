@@ -15,12 +15,15 @@ public class Enemy : MonoBehaviour
     public float attackDelay = 3f;
     public AnimationController animations;
     public float AttackRange;
+    public bool dead;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
     private void FixedUpdate()
     {
+        if (dead)
+            return;
         //start
         distanceToPlyr = Vector3.Distance(player.transform.position, transform.position);
         attackTimer += Time.deltaTime;

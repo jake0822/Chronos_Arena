@@ -5,12 +5,12 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public Animation animation;
-     public bool attack, hit, run, idle;
+     public bool attack, hit, run, idle, death;
     private bool swap;
     
     public void resetAnimations()
     {
-        attack = false; hit = false; run = false; idle = false;
+        attack = false; hit = false; run = false; idle = false; death = false;
     }
     private void FixedUpdate()
     {
@@ -18,6 +18,7 @@ public class AnimationController : MonoBehaviour
         {
             animation.Play("Idle_01");
         }
+        
         else if (hit)
         {
             animation.Play("Hit");
@@ -35,7 +36,11 @@ public class AnimationController : MonoBehaviour
         {
             animation.Play("Run");
         }
-        
+        else if (death)
+        {
+            animation.Play("Die");
+        }
+
     }
 
     

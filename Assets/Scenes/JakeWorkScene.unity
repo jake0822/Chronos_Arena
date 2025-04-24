@@ -575,6 +575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 5
   minDamageThreshold: 0.5
+  knockbackMultiplier: 10
+  maxKnockbackForce: 15
   hitSound: {fileID: 8300000, guid: 624e37cc02c74084b89b041116d22a68, type: 3}
   screechSound: {fileID: 8300000, guid: a8907f962d40f7c438534653dbb56a3a, type: 3}
   audioSource: {fileID: 638155011}
@@ -833,6 +835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 2.5
   minDamageThreshold: 0.5
+  knockbackMultiplier: 20
+  maxKnockbackForce: 15
   hitSound: {fileID: 0}
   screechSound: {fileID: 0}
   audioSource: {fileID: 0}
@@ -1529,6 +1533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 5
   minDamageThreshold: 0.5
+  knockbackMultiplier: 10
+  maxKnockbackForce: 15
   hitSound: {fileID: 8300000, guid: 624e37cc02c74084b89b041116d22a68, type: 3}
   screechSound: {fileID: 8300000, guid: a8907f962d40f7c438534653dbb56a3a, type: 3}
   audioSource: {fileID: 2020743895}
